@@ -39,4 +39,4 @@ out/
 ### Kotlin ###
 .kotlin
 
-src/main/kotlin/com/oidc/oidc_demo/OidcDemoApplication.kt
+src/main/resources/application.properties
