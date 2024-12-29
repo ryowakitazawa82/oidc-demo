@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserInfo</title>
+</head>
+<body>
+<div>subject(User ID)：<span th:text="${subject}"></span></div>
+<div>email：<span th:text="${email}"></span></div>
+<div>emailVerified：<span th:text="${emailVerified}"></span></div>
+<div>fullName：<span th:text="${fullName}"></span></div>
+<div>picture：<span th:text="${picture}"></span></div>
+<div>locale：<span th:text="${locale}"></span></div>
+<div>familyName：<span th:text="${familyName}"></span></div>
+<div>givenName：<span th:text="${givenName}"></span></div>
+
+<a href="/">Back</a>
+</body>
+</html>
