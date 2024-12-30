@@ -1,15 +1,20 @@
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.web.SecurityFilterChain
 
-@EnableWebSecurity
-class SecurityConfig : WebSecurityConfigurerAdapter() {
-    override fun configure(http: HttpSecurity) {
+@Configuration
+class SecurityConfig {
+    @Bean
+    @kotlin.Throws(java.lang.Exception::class)
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
-                .authorizeRequests()
-                .mvcMatchers("/").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                .authorizeHttpRequests { auth ->
+                    auth
+                            .requestMatchers("/public").permitAll()
+                            .anyRequest().authenticated()
+                }
                 .oauth2Login()
+        return http.build()
     }
 }
